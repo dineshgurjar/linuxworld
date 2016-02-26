@@ -1,0 +1,57 @@
+C51 COMPILER V9.50a   PRINT_DATA                                                           04/30/2011 02:18:51 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE PRINT_DATA
+OBJECT MODULE PLACED IN print_data.OBJ
+COMPILER INVOKED BY: C:\Keil4\C51\BIN\C51.EXE print_data.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"header.h"
+   2          
+   3          void lcd_display(float a,float b)
+   4          {
+   5   1                lcdcmd(0x80);
+   6   1          pstring("1 ");
+   7   1                lcd_float(b);
+   8   1          pstring("v 2 ");
+   9   1                lcd_integer(a);
+  10   1          lcdcmd(0xc0);
+  11   1      }
+  12          
+  13          void lcd_display_time(const char *tbuff)
+  14          {
+  15   1        lcdcmd(0xc0);
+  16   1        pstring("Time ");
+  17   1        pstring(tbuff); 
+  18   1      }
+  19          
+  20          void uart_display(float a,float b)
+  21          {
+  22   1                upstring("\r1 ");
+  23   1                uart_float(b);
+  24   1                upstring("v 2 ");
+  25   1                uart_int(a);
+  26   1               // upstring("\r\n");
+  27   1                ms_delay(100);
+  28   1      }
+  29          
+  30          void uart_display_time(const char *tbuff)
+  31          {
+  32   1                upstring(" Time ");
+  33   1                upstring(tbuff);
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1401    ----
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      67
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
